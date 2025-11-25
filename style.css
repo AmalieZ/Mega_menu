@@ -1,0 +1,126 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 40px;
+    background: white;
+    border-bottom: 1px solid black;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    height: 50px;
+    width: auto;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: black;
+    font-size: 15px;
+    text-transform: uppercase;
+    padding: 10px 0;
+}
+
+.nav-links a.sale {
+    color: red;
+    font-weight: bold;
+}
+
+.menu-item {
+    position: relative;
+}
+
+.mega-menu {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    transform: translateY(10px);
+    width: 800px;
+    background: white;
+    padding: 30px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.25s ease;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.menu-item:hover .mega-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+
+.mega-menu .col h4 {
+    font-size: 14px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    color: black;
+}
+
+.mega-menu .col a {
+    display: block;
+    margin-bottom: 8px;
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+}
+
+.mega-menu .col a:hover {
+    color: black;
+}
+
+@media (max-width: 900px) {
+
+    .nav {
+        padding: 8px 16px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+    }
+
+    .mega-menu {
+        position: static;
+        transform: none;
+        width: 100%;
+        max-width: none;
+        box-shadow: none;
+        border-radius: 0.5rem;
+        display: none;
+        grid-template-columns: 1fr;
+        padding: 16px;
+        visibility: visible;
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .menu-item:hover .mega-menu {
+        display: block;
+    }
+}
